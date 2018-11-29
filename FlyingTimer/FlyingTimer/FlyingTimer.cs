@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace FlyingTimer
 {
-    public partial class Login : Form
+    public partial class FlyingTimer : Form
     {
-        public Login()
+        public FlyingTimer()
         {
             InitializeComponent();
+            tcMain.Appearance = TabAppearance.FlatButtons;
+            tcMain.ItemSize = new Size(0, 1);
+            tcMain.SizeMode = TabSizeMode.Fixed;
         }
     }
 }

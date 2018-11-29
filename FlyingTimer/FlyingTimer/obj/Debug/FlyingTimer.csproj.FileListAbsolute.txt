@@ -1,0 +1,11 @@
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.csprojResolveAssemblyReference.cache
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.FlyingTimer.resources
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.Properties.Resources.resources
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.csproj.GenerateResource.Cache
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.csproj.CoreCompileInputs.cache
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\bin\Debug\FlyingTimer.exe.config
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\bin\Debug\FlyingTimer.exe
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\bin\Debug\FlyingTimer.pdb
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.exe
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.pdb
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.Login.resources
