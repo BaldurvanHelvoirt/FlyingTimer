@@ -9,3 +9,5 @@ D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\bin\Debug\FlyingTimer.pdb
 D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.exe
 D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.pdb
 D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\obj\Debug\FlyingTimer.Login.resources
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\bin\Debug\MySql.Data.dll
+D:\Github\FlyingTimer\FlyingTimer\FlyingTimer\bin\Debug\MySql.Data.xml

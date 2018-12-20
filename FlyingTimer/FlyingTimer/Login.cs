@@ -12,9 +12,33 @@ namespace FlyingTimer
 {
     public partial class Login : Form
     {
+        DB DB = new DB();
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (DB.CheckLogin(tbUsername.Text, tbPassword.Text))
+            {
+                this.Hide();
+                FlyingTimer FT = new FlyingTimer();
+                FT.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Het ingevulde gebruikersnaam of wachtwoord is niet correct");
+            }
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Register RE = new Register();
+            RE.ShowDialog();
+            this.Close();
         }
     }
 }
