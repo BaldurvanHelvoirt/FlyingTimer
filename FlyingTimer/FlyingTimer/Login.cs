@@ -12,7 +12,7 @@ namespace FlyingTimer
 {
     public partial class Login : Form
     {
-        DB DB = new DB();
+        Database DB = new Database();
         public Login()
         {
             InitializeComponent();

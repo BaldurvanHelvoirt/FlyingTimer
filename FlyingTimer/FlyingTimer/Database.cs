@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace FlyingTimer
 {
-    class DB
+    class Database
     {
         MySqlConnection con = new MySqlConnection("Server=localhost; Database=flyingtimer; Uid=root; Pwd=;");
 
@@ -34,6 +34,17 @@ namespace FlyingTimer
                 con.Close();
                 return false;
             }
+        }
+        public void RegisterUser(string username, string password, string fname, string lname)
+        {
+            con.Open();
+            MySqlCommand Register = new MySqlCommand("INSERT INTO users (username, password, email) VALUES (@username, @password, @fname, @lname)", con);
+            Register.Parameters.AddWithValue("@username", username);
+            Register.Parameters.AddWithValue("@password", password);
+            Register.Parameters.AddWithValue("@fname", fname);
+            Register.Parameters.AddWithValue("@lname", lname);
+            Register.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
