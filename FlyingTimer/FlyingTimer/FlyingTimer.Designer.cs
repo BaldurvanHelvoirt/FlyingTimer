@@ -35,19 +35,30 @@
             this.cbDrones = new System.Windows.Forms.ComboBox();
             this.lv = new System.Windows.Forms.ListView();
             this.tcRacen = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbDrone = new System.Windows.Forms.ComboBox();
+            this.cbCity = new System.Windows.Forms.ComboBox();
+            this.cbState = new System.Windows.Forms.ComboBox();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tcTimer = new System.Windows.Forms.TabPage();
+            this.lvLaptimes = new System.Windows.Forms.ListView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblLaps = new System.Windows.Forms.Label();
             this.lblMilSec = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tcUitloggen = new System.Windows.Forms.TabPage();
             this.tmTime = new System.Windows.Forms.Timer(this.components);
-            this.lblLaps = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lvLaptimes = new System.Windows.Forms.ListView();
+            this.cbModel = new System.Windows.Forms.ComboBox();
             this.tcMain.SuspendLayout();
             this.tcMijnOverzicht.SuspendLayout();
+            this.tcRacen.SuspendLayout();
             this.tcTimer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +76,7 @@
             // 
             // tcMijnOverzicht
             // 
+            this.tcMijnOverzicht.Controls.Add(this.cbModel);
             this.tcMijnOverzicht.Controls.Add(this.label1);
             this.tcMijnOverzicht.Controls.Add(this.cbDrones);
             this.tcMijnOverzicht.Controls.Add(this.lv);
@@ -94,6 +106,7 @@
             this.cbDrones.Name = "cbDrones";
             this.cbDrones.Size = new System.Drawing.Size(121, 21);
             this.cbDrones.TabIndex = 1;
+            this.cbDrones.SelectedIndexChanged += new System.EventHandler(this.cbDrones_SelectedIndexChanged);
             // 
             // lv
             // 
@@ -105,6 +118,15 @@
             // 
             // tcRacen
             // 
+            this.tcRacen.Controls.Add(this.label9);
+            this.tcRacen.Controls.Add(this.label8);
+            this.tcRacen.Controls.Add(this.label7);
+            this.tcRacen.Controls.Add(this.label6);
+            this.tcRacen.Controls.Add(this.cbDrone);
+            this.tcRacen.Controls.Add(this.cbCity);
+            this.tcRacen.Controls.Add(this.cbState);
+            this.tcRacen.Controls.Add(this.cbCountry);
+            this.tcRacen.Controls.Add(this.label5);
             this.tcRacen.Location = new System.Drawing.Point(4, 22);
             this.tcRacen.Name = "tcRacen";
             this.tcRacen.Padding = new System.Windows.Forms.Padding(3);
@@ -112,6 +134,84 @@
             this.tcRacen.TabIndex = 1;
             this.tcRacen.Text = "Race Settings";
             this.tcRacen.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(102, 184);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(39, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Drone:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(114, 157);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "City:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(106, 130);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "State:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(95, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Country:";
+            // 
+            // cbDrone
+            // 
+            this.cbDrone.FormattingEnabled = true;
+            this.cbDrone.Location = new System.Drawing.Point(147, 181);
+            this.cbDrone.Name = "cbDrone";
+            this.cbDrone.Size = new System.Drawing.Size(121, 21);
+            this.cbDrone.TabIndex = 4;
+            // 
+            // cbCity
+            // 
+            this.cbCity.FormattingEnabled = true;
+            this.cbCity.Location = new System.Drawing.Point(147, 154);
+            this.cbCity.Name = "cbCity";
+            this.cbCity.Size = new System.Drawing.Size(121, 21);
+            this.cbCity.TabIndex = 3;
+            // 
+            // cbState
+            // 
+            this.cbState.FormattingEnabled = true;
+            this.cbState.Location = new System.Drawing.Point(147, 127);
+            this.cbState.Name = "cbState";
+            this.cbState.Size = new System.Drawing.Size(121, 21);
+            this.cbState.TabIndex = 2;
+            // 
+            // cbCountry
+            // 
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Location = new System.Drawing.Point(147, 100);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(121, 21);
+            this.cbCountry.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(143, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Race Settings";
             // 
             // tcTimer
             // 
@@ -130,6 +230,50 @@
             this.tcTimer.TabIndex = 3;
             this.tcTimer.Text = "Timer";
             this.tcTimer.UseVisualStyleBackColor = true;
+            // 
+            // lvLaptimes
+            // 
+            this.lvLaptimes.FullRowSelect = true;
+            this.lvLaptimes.GridLines = true;
+            this.lvLaptimes.HideSelection = false;
+            this.lvLaptimes.Location = new System.Drawing.Point(70, 54);
+            this.lvLaptimes.Name = "lvLaptimes";
+            this.lvLaptimes.Size = new System.Drawing.Size(305, 200);
+            this.lvLaptimes.TabIndex = 13;
+            this.lvLaptimes.UseCompatibleStateImageBehavior = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(246, 257);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Time:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(116, 257);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Laps:";
+            // 
+            // lblLaps
+            // 
+            this.lblLaps.AutoSize = true;
+            this.lblLaps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaps.Location = new System.Drawing.Point(167, 257);
+            this.lblLaps.Margin = new System.Windows.Forms.Padding(0);
+            this.lblLaps.Name = "lblLaps";
+            this.lblLaps.Size = new System.Drawing.Size(18, 20);
+            this.lblLaps.TabIndex = 10;
+            this.lblLaps.Text = "0";
             // 
             // lblMilSec
             // 
@@ -187,49 +331,13 @@
             // 
             this.tmTime.Tick += new System.EventHandler(this.tmTime_Tick);
             // 
-            // lblLaps
+            // cbModel
             // 
-            this.lblLaps.AutoSize = true;
-            this.lblLaps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaps.Location = new System.Drawing.Point(167, 257);
-            this.lblLaps.Margin = new System.Windows.Forms.Padding(0);
-            this.lblLaps.Name = "lblLaps";
-            this.lblLaps.Size = new System.Drawing.Size(18, 20);
-            this.lblLaps.TabIndex = 10;
-            this.lblLaps.Text = "0";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(116, 257);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 20);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Laps:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(246, 257);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 20);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Time:";
-            // 
-            // lvLaptimes
-            // 
-            this.lvLaptimes.FullRowSelect = true;
-            this.lvLaptimes.GridLines = true;
-            this.lvLaptimes.HideSelection = false;
-            this.lvLaptimes.Location = new System.Drawing.Point(70, 54);
-            this.lvLaptimes.Name = "lvLaptimes";
-            this.lvLaptimes.Size = new System.Drawing.Size(305, 200);
-            this.lvLaptimes.TabIndex = 13;
-            this.lvLaptimes.UseCompatibleStateImageBehavior = false;
+            this.cbModel.FormattingEnabled = true;
+            this.cbModel.Location = new System.Drawing.Point(195, 72);
+            this.cbModel.Name = "cbModel";
+            this.cbModel.Size = new System.Drawing.Size(121, 21);
+            this.cbModel.TabIndex = 3;
             // 
             // FlyingTimer
             // 
@@ -242,6 +350,8 @@
             this.tcMain.ResumeLayout(false);
             this.tcMijnOverzicht.ResumeLayout(false);
             this.tcMijnOverzicht.PerformLayout();
+            this.tcRacen.ResumeLayout(false);
+            this.tcRacen.PerformLayout();
             this.tcTimer.ResumeLayout(false);
             this.tcTimer.PerformLayout();
             this.ResumeLayout(false);
@@ -267,5 +377,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblLaps;
         private System.Windows.Forms.ListView lvLaptimes;
+        private System.Windows.Forms.ComboBox cbDrone;
+        private System.Windows.Forms.ComboBox cbCity;
+        private System.Windows.Forms.ComboBox cbState;
+        private System.Windows.Forms.ComboBox cbCountry;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbModel;
     }
 }

@@ -17,6 +17,8 @@ namespace FlyingTimer
     {
         Database DB = new Database();
         DataTable DT = new DataTable();
+        DataTable DME = new DataTable();
+        DataTable DMO = new DataTable();
         MySqlConnection con = new MySqlConnection("Server=localhost; Database=flyingtimer; Uid=root; Pwd=;");
         private int Laps;
         private int Startime;
@@ -32,18 +34,28 @@ namespace FlyingTimer
 
         private void GetDrones()
         {
-            MySqlCommand Users = new MySqlCommand("SELECT * FROM drone", con);
-            MySqlDataAdapter MAD = new MySqlDataAdapter(Users);
-            MAD.Fill(DT);
+            MySqlCommand drone = new MySqlCommand("SELECT merk FROM drone", con);
+            MySqlDataAdapter DRO = new MySqlDataAdapter(drone);
+            DRO.Fill(DME);
             cbDrones.ValueMember = "merk";
             cbDrones.DisplayMember = "merk";
-            cbDrones.DataSource = DT;
-            /*
-            foreach (DataRow Data in DT.Rows)
-            {
-                cbDrones.Items.Add(Data.ToString());
-            }
-            */
+            cbDrones.DataSource = DME;
+            con.Close();
+        }
+        private void cbDrones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetDroneModel(cbDrones.SelectedItem.ToString());
+        }
+
+        private void GetDroneModel(string drones)
+        {
+            MySqlCommand model = new MySqlCommand("SELECT model FROM drone WHERE merk = @drones", con);
+            model.Parameters.AddWithValue("@drones", drones);
+            MySqlDataAdapter MOD = new MySqlDataAdapter(model);
+            MOD.Fill(DMO);
+            cbModel.ValueMember = "model";
+            cbModel.DisplayMember = "model";
+            cbModel.DataSource = DMO;
             con.Close();
         }
 
@@ -71,6 +83,7 @@ namespace FlyingTimer
         private void btnStop_Click(object sender, EventArgs e)
         {
             tmTime.Stop();
+            SaveLapTimes();
         }
 
         private void AddTimeToListVieuw(string laps, string time)
@@ -78,6 +91,22 @@ namespace FlyingTimer
             string[] row = { laps, time };
             var listViewItem = new ListViewItem(row);
             lvLaptimes.Items.Add(listViewItem);
+        }
+
+        private void SaveLapTimes()
+        {
+            foreach (ListViewItem item in lvLaptimes.Items)
+            {
+                con.Open();
+                MySqlCommand Laptimes = new MySqlCommand("INSERT INTO time (racetrack_racetreckid, races_racesid, laps, time, date) VALUES (@trackid, @raceid, @laps, @time, @date)", con);
+                //Laptimes.Parameters.Add("@trackid", lblRaceTrack.Text);
+                //Laptimes.Parameters.Add("@racekid", lblRaceId.Text);
+                Laptimes.Parameters.Add("@laps", item.Text);
+                Laptimes.Parameters.Add("@time", item.Text);
+                Laptimes.Parameters.Add("@date", DateTime.Today);
+                Laptimes.ExecuteNonQuery();
+            }
+            con.Close();
         }
 
         private void HideTabs()

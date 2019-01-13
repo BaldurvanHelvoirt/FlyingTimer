@@ -38,13 +38,30 @@ namespace FlyingTimer
         public void RegisterUser(string username, string password, string fname, string lname)
         {
             con.Open();
-            MySqlCommand Register = new MySqlCommand("INSERT INTO users (username, password, email) VALUES (@username, @password, @fname, @lname)", con);
+            MySqlCommand Register = new MySqlCommand("INSERT INTO users (username, password, firstname, lastname) VALUES (@username, @password, @fname, @lname)", con);
             Register.Parameters.AddWithValue("@username", username);
             Register.Parameters.AddWithValue("@password", password);
             Register.Parameters.AddWithValue("@fname", fname);
             Register.Parameters.AddWithValue("@lname", lname);
             Register.ExecuteNonQuery();
             con.Close();
+        }
+
+        public void GetOverzicht(string drone, string model, string username)
+        {
+            con.Open();
+            MySqlCommand GetRaceOverzicht = new MySqlCommand("SELECT laps, time, date FROM time WHERE races_racesid = " +
+                                                             "(SELECT raceid FROM races WHERE drone_droneid = " +
+                                                             "(SELECT droneid FROM drone WHERE drone = @drone AND model = @model AND users_userid = " +
+                                                             "(SELECT userid FROM users WHERE username = @username)))", con);
+            GetRaceOverzicht.Parameters.AddWithValue("@drone", drone);
+            GetRaceOverzicht.Parameters.AddWithValue("@model", model);
+            GetRaceOverzicht.Parameters.AddWithValue("@username", username);
+            MySqlDataReader reader = GetRaceOverzicht.ExecuteReader();
+            while (reader.Read())
+            {
+
+            }
         }
     }
 }
