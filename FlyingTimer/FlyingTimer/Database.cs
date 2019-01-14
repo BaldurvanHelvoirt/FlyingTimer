@@ -35,6 +35,20 @@ namespace FlyingTimer
                 return false;
             }
         }
+
+        public int GetUserId(string Login)
+        {
+            int UserId = 0;
+            con.Open();
+            MySqlCommand GetUserId = new MySqlCommand("SELECT userid FROM users WHERE username = @Login", con);
+            GetUserId.Parameters.AddWithValue("@Login", Login);
+            MySqlDataReader reader2 = GetUserId.ExecuteReader();
+            while (reader2.Read())
+            {
+                UserId = reader2.GetInt32(reader2.GetOrdinal("userid"));
+            }
+            return UserId;
+        }
         public void RegisterUser(string username, string password, string fname, string lname)
         {
             con.Open();
@@ -47,15 +61,11 @@ namespace FlyingTimer
             con.Close();
         }
 
-        public void GetOverzicht(string drone, string model, string username)
+        public void GetOverzicht(string username)
         {
             con.Open();
-            MySqlCommand GetRaceOverzicht = new MySqlCommand("SELECT laps, time, date FROM time WHERE races_racesid = " +
-                                                             "(SELECT raceid FROM races WHERE drone_droneid = " +
-                                                             "(SELECT droneid FROM drone WHERE drone = @drone AND model = @model AND users_userid = " +
-                                                             "(SELECT userid FROM users WHERE username = @username)))", con);
-            GetRaceOverzicht.Parameters.AddWithValue("@drone", drone);
-            GetRaceOverzicht.Parameters.AddWithValue("@model", model);
+            MySqlCommand GetRaceOverzicht = new MySqlCommand("SELECT laps, time, date FROM time WHERE users_userid = " +
+                                                             "(SELECT userid FROM users WHERE username = @username))", con);
             GetRaceOverzicht.Parameters.AddWithValue("@username", username);
             MySqlDataReader reader = GetRaceOverzicht.ExecuteReader();
             while (reader.Read())

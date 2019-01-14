@@ -20,16 +20,19 @@ namespace FlyingTimer
         DataTable DME = new DataTable();
         DataTable DMO = new DataTable();
         MySqlConnection con = new MySqlConnection("Server=localhost; Database=flyingtimer; Uid=root; Pwd=;");
+        private int userid;
+        private int trackid;
         private int Laps;
         private int Startime;
         private int MilSec;
         private int MilsecElapsed;
         private int Stoptime;
-        public FlyingTimer()
+        public FlyingTimer(int UserId)
         {
             InitializeComponent();
             GetDrones();
             Addheaders();
+            userid = UserId;
         }
 
         private void GetDrones()
@@ -85,7 +88,15 @@ namespace FlyingTimer
             tmTime.Stop();
             SaveLapTimes();
         }
+        private void Addheaders()
+        {
+            lvLaptimes.View = View.Details;
+            lvLaptimes.FullRowSelect = true;
 
+            //ADD COLUMNS
+            lvLaptimes.Columns.Add("Laps", 150);
+            lvLaptimes.Columns.Add("Time", 150);
+        }
         private void AddTimeToListVieuw(string laps, string time)
         {
             string[] row = { laps, time };
@@ -98,32 +109,22 @@ namespace FlyingTimer
             foreach (ListViewItem item in lvLaptimes.Items)
             {
                 con.Open();
-                MySqlCommand Laptimes = new MySqlCommand("INSERT INTO time (racetrack_racetreckid, races_racesid, laps, time, date) VALUES (@trackid, @raceid, @laps, @time, @date)", con);
-                //Laptimes.Parameters.Add("@trackid", lblRaceTrack.Text);
-                //Laptimes.Parameters.Add("@racekid", lblRaceId.Text);
-                Laptimes.Parameters.Add("@laps", item.Text);
-                Laptimes.Parameters.Add("@time", item.Text);
+                MySqlCommand Laptimes = new MySqlCommand("INSERT INTO time (racetrack_racetreckid, users_userid, laps, time, date) VALUES (@trackid, @users, @time, @date)", con);
+                Laptimes.Parameters.Add("@trackid", userid);
+                Laptimes.Parameters.Add("@users", trackid);
+                Laptimes.Parameters.Add("@laps", item.SubItems[0].Text);
+                Laptimes.Parameters.Add("@time", item.SubItems[1].Text);
                 Laptimes.Parameters.Add("@date", DateTime.Today);
                 Laptimes.ExecuteNonQuery();
+                con.Close();
             }
-            con.Close();
         }
 
-        private void HideTabs()
-        {
-            tcMain.Appearance = TabAppearance.FlatButtons;
-            tcMain.ItemSize = new Size(0, 1);
-            tcMain.SizeMode = TabSizeMode.Fixed;
-        }
-
-        private void Addheaders()
-        {
-            lvLaptimes.View = View.Details;
-            lvLaptimes.FullRowSelect = true;
-
-            //ADD COLUMNS
-            lvLaptimes.Columns.Add("Laps", 150);
-            lvLaptimes.Columns.Add("Time", 150);
-        }
+        //private void HideTabs()
+        //{
+        //    tcMain.Appearance = TabAppearance.FlatButtons;
+        //    tcMain.ItemSize = new Size(0, 1);
+        //    tcMain.SizeMode = TabSizeMode.Fixed;
+        //}
     }
 }

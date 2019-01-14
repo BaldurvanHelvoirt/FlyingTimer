@@ -22,8 +22,9 @@ namespace FlyingTimer
         {
             if (DB.CheckLogin(tbUsername.Text, tbPassword.Text))
             {
+                int UsersId = DB.GetUserId(tbUsername.Text);
                 this.Hide();
-                FlyingTimer FT = new FlyingTimer();
+                FlyingTimer FT = new FlyingTimer(UsersId);
                 FT.ShowDialog();
                 this.Close();
             }

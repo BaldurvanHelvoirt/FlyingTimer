@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tcMijnOverzicht = new System.Windows.Forms.TabPage();
+            this.cbModel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbDrones = new System.Windows.Forms.ComboBox();
             this.lv = new System.Windows.Forms.ListView();
@@ -55,7 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tcUitloggen = new System.Windows.Forms.TabPage();
             this.tmTime = new System.Windows.Forms.Timer(this.components);
-            this.cbModel = new System.Windows.Forms.ComboBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.tcMain.SuspendLayout();
             this.tcMijnOverzicht.SuspendLayout();
             this.tcRacen.SuspendLayout();
@@ -87,6 +88,14 @@
             this.tcMijnOverzicht.TabIndex = 0;
             this.tcMijnOverzicht.Text = "Mijn Overzicht";
             this.tcMijnOverzicht.UseVisualStyleBackColor = true;
+            // 
+            // cbModel
+            // 
+            this.cbModel.FormattingEnabled = true;
+            this.cbModel.Location = new System.Drawing.Point(195, 72);
+            this.cbModel.Name = "cbModel";
+            this.cbModel.Size = new System.Drawing.Size(121, 21);
+            this.cbModel.TabIndex = 3;
             // 
             // label1
             // 
@@ -215,6 +224,7 @@
             // 
             // tcTimer
             // 
+            this.tcTimer.Controls.Add(this.lblUsername);
             this.tcTimer.Controls.Add(this.lvLaptimes);
             this.tcTimer.Controls.Add(this.label4);
             this.tcTimer.Controls.Add(this.label3);
@@ -331,13 +341,15 @@
             // 
             this.tmTime.Tick += new System.EventHandler(this.tmTime_Tick);
             // 
-            // cbModel
+            // lblUsername
             // 
-            this.cbModel.FormattingEnabled = true;
-            this.cbModel.Location = new System.Drawing.Point(195, 72);
-            this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(121, 21);
-            this.cbModel.TabIndex = 3;
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(3, 3);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(60, 20);
+            this.lblUsername.TabIndex = 14;
+            this.lblUsername.Text = "label10";
             // 
             // FlyingTimer
             // 
@@ -387,5 +399,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbModel;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
