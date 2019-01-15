@@ -31,11 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tcMijnOverzicht = new System.Windows.Forms.TabPage();
-            this.cbModel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbDrones = new System.Windows.Forms.ComboBox();
-            this.lv = new System.Windows.Forms.ListView();
+            this.cbRacetracks = new System.Windows.Forms.ComboBox();
+            this.lvMijnOverzicht = new System.Windows.Forms.ListView();
             this.tcRacen = new System.Windows.Forms.TabPage();
+            this.btnSelectSettings = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbRacetrack = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,6 +48,9 @@
             this.cbCountry = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tcTimer = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.lvLaptimes = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,7 +61,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tcUitloggen = new System.Windows.Forms.TabPage();
             this.tmTime = new System.Windows.Forms.Timer(this.components);
-            this.lblUsername = new System.Windows.Forms.Label();
             this.tcMain.SuspendLayout();
             this.tcMijnOverzicht.SuspendLayout();
             this.tcRacen.SuspendLayout();
@@ -77,10 +81,9 @@
             // 
             // tcMijnOverzicht
             // 
-            this.tcMijnOverzicht.Controls.Add(this.cbModel);
             this.tcMijnOverzicht.Controls.Add(this.label1);
-            this.tcMijnOverzicht.Controls.Add(this.cbDrones);
-            this.tcMijnOverzicht.Controls.Add(this.lv);
+            this.tcMijnOverzicht.Controls.Add(this.cbRacetracks);
+            this.tcMijnOverzicht.Controls.Add(this.lvMijnOverzicht);
             this.tcMijnOverzicht.Location = new System.Drawing.Point(4, 22);
             this.tcMijnOverzicht.Name = "tcMijnOverzicht";
             this.tcMijnOverzicht.Padding = new System.Windows.Forms.Padding(3);
@@ -88,14 +91,6 @@
             this.tcMijnOverzicht.TabIndex = 0;
             this.tcMijnOverzicht.Text = "Mijn Overzicht";
             this.tcMijnOverzicht.UseVisualStyleBackColor = true;
-            // 
-            // cbModel
-            // 
-            this.cbModel.FormattingEnabled = true;
-            this.cbModel.Location = new System.Drawing.Point(195, 72);
-            this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(121, 21);
-            this.cbModel.TabIndex = 3;
             // 
             // label1
             // 
@@ -108,25 +103,28 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Mijn Overzicht";
             // 
-            // cbDrones
+            // cbRacetracks
             // 
-            this.cbDrones.FormattingEnabled = true;
-            this.cbDrones.Location = new System.Drawing.Point(60, 72);
-            this.cbDrones.Name = "cbDrones";
-            this.cbDrones.Size = new System.Drawing.Size(121, 21);
-            this.cbDrones.TabIndex = 1;
-            this.cbDrones.SelectedIndexChanged += new System.EventHandler(this.cbDrones_SelectedIndexChanged);
+            this.cbRacetracks.FormattingEnabled = true;
+            this.cbRacetracks.Location = new System.Drawing.Point(60, 72);
+            this.cbRacetracks.Name = "cbRacetracks";
+            this.cbRacetracks.Size = new System.Drawing.Size(121, 21);
+            this.cbRacetracks.TabIndex = 1;
+            this.cbRacetracks.SelectedIndexChanged += new System.EventHandler(this.cbDrones_SelectedIndexChanged);
             // 
-            // lv
+            // lvMijnOverzicht
             // 
-            this.lv.Location = new System.Drawing.Point(60, 111);
-            this.lv.Name = "lv";
-            this.lv.Size = new System.Drawing.Size(351, 240);
-            this.lv.TabIndex = 0;
-            this.lv.UseCompatibleStateImageBehavior = false;
+            this.lvMijnOverzicht.Location = new System.Drawing.Point(60, 111);
+            this.lvMijnOverzicht.Name = "lvMijnOverzicht";
+            this.lvMijnOverzicht.Size = new System.Drawing.Size(351, 240);
+            this.lvMijnOverzicht.TabIndex = 0;
+            this.lvMijnOverzicht.UseCompatibleStateImageBehavior = false;
             // 
             // tcRacen
             // 
+            this.tcRacen.Controls.Add(this.btnSelectSettings);
+            this.tcRacen.Controls.Add(this.label10);
+            this.tcRacen.Controls.Add(this.cbRacetrack);
             this.tcRacen.Controls.Add(this.label9);
             this.tcRacen.Controls.Add(this.label8);
             this.tcRacen.Controls.Add(this.label7);
@@ -144,10 +142,38 @@
             this.tcRacen.Text = "Race Settings";
             this.tcRacen.UseVisualStyleBackColor = true;
             // 
+            // btnSelectSettings
+            // 
+            this.btnSelectSettings.Location = new System.Drawing.Point(147, 236);
+            this.btnSelectSettings.Name = "btnSelectSettings";
+            this.btnSelectSettings.Size = new System.Drawing.Size(121, 23);
+            this.btnSelectSettings.TabIndex = 11;
+            this.btnSelectSettings.Text = "Start Race";
+            this.btnSelectSettings.UseVisualStyleBackColor = true;
+            this.btnSelectSettings.Click += new System.EventHandler(this.btnSelectSettings_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(103, 184);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Track:";
+            // 
+            // cbRacetrack
+            // 
+            this.cbRacetrack.FormattingEnabled = true;
+            this.cbRacetrack.Location = new System.Drawing.Point(147, 181);
+            this.cbRacetrack.Name = "cbRacetrack";
+            this.cbRacetrack.Size = new System.Drawing.Size(121, 21);
+            this.cbRacetrack.TabIndex = 9;
+            this.cbRacetrack.SelectedIndexChanged += new System.EventHandler(this.cbRacetrack_SelectedIndexChanged);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(102, 184);
+            this.label9.Location = new System.Drawing.Point(102, 211);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 8;
@@ -183,7 +209,7 @@
             // cbDrone
             // 
             this.cbDrone.FormattingEnabled = true;
-            this.cbDrone.Location = new System.Drawing.Point(147, 181);
+            this.cbDrone.Location = new System.Drawing.Point(147, 208);
             this.cbDrone.Name = "cbDrone";
             this.cbDrone.Size = new System.Drawing.Size(121, 21);
             this.cbDrone.TabIndex = 4;
@@ -195,6 +221,7 @@
             this.cbCity.Name = "cbCity";
             this.cbCity.Size = new System.Drawing.Size(121, 21);
             this.cbCity.TabIndex = 3;
+            this.cbCity.SelectedIndexChanged += new System.EventHandler(this.cbCity_SelectedIndexChanged);
             // 
             // cbState
             // 
@@ -203,6 +230,7 @@
             this.cbState.Name = "cbState";
             this.cbState.Size = new System.Drawing.Size(121, 21);
             this.cbState.TabIndex = 2;
+            this.cbState.SelectedIndexChanged += new System.EventHandler(this.cbState_SelectedIndexChanged);
             // 
             // cbCountry
             // 
@@ -211,6 +239,7 @@
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(121, 21);
             this.cbCountry.TabIndex = 1;
+            this.cbCountry.SelectedIndexChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -224,6 +253,8 @@
             // 
             // tcTimer
             // 
+            this.tcTimer.Controls.Add(this.richTextBox1);
+            this.tcTimer.Controls.Add(this.btnConnect);
             this.tcTimer.Controls.Add(this.lblUsername);
             this.tcTimer.Controls.Add(this.lvLaptimes);
             this.tcTimer.Controls.Add(this.label4);
@@ -240,6 +271,35 @@
             this.tcTimer.TabIndex = 3;
             this.tcTimer.Text = "Timer";
             this.tcTimer.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(299, 329);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(178, 40);
+            this.richTextBox1.TabIndex = 16;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(56, 329);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 40);
+            this.btnConnect.TabIndex = 15;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(3, 3);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(60, 20);
+            this.lblUsername.TabIndex = 14;
+            this.lblUsername.Text = "label10";
             // 
             // lvLaptimes
             // 
@@ -341,16 +401,6 @@
             // 
             this.tmTime.Tick += new System.EventHandler(this.tmTime_Tick);
             // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(3, 3);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(60, 20);
-            this.lblUsername.TabIndex = 14;
-            this.lblUsername.Text = "label10";
-            // 
             // FlyingTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,8 +427,8 @@
         private System.Windows.Forms.TabPage tcRacen;
         private System.Windows.Forms.TabPage tcUitloggen;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbDrones;
-        private System.Windows.Forms.ListView lv;
+        private System.Windows.Forms.ComboBox cbRacetracks;
+        private System.Windows.Forms.ListView lvMijnOverzicht;
         private System.Windows.Forms.TabPage tcTimer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnStop;
@@ -398,7 +448,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbModel;
         private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbRacetrack;
+        private System.Windows.Forms.Button btnSelectSettings;
     }
 }

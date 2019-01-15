@@ -60,18 +60,5 @@ namespace FlyingTimer
             Register.ExecuteNonQuery();
             con.Close();
         }
-
-        public void GetOverzicht(string username)
-        {
-            con.Open();
-            MySqlCommand GetRaceOverzicht = new MySqlCommand("SELECT laps, time, date FROM time WHERE users_userid = " +
-                                                             "(SELECT userid FROM users WHERE username = @username))", con);
-            GetRaceOverzicht.Parameters.AddWithValue("@username", username);
-            MySqlDataReader reader = GetRaceOverzicht.ExecuteReader();
-            while (reader.Read())
-            {
-
-            }
-        }
     }
 }

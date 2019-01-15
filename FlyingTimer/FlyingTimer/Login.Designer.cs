@@ -71,7 +71,7 @@
             // 
             this.tbUsername.Location = new System.Drawing.Point(111, 159);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(217, 20);
+            this.tbUsername.Size = new System.Drawing.Size(155, 20);
             this.tbUsername.TabIndex = 3;
             // 
             // tbPassword
@@ -79,7 +79,7 @@
             this.tbPassword.Location = new System.Drawing.Point(111, 185);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(217, 20);
+            this.tbPassword.Size = new System.Drawing.Size(155, 20);
             this.tbPassword.TabIndex = 4;
             // 
             // btnLogin
